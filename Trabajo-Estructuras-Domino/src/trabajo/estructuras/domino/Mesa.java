@@ -45,11 +45,17 @@ public class Mesa implements MesaITF {
 
     @Override
     public void mostrarMesa() {
-        if(estaVacia()){
+        if (this.estaVacia()) {
             System.out.println("Mesa: [Vacia]");
         } else {
-            System.out.println("Mesa: ");
-            
+
+            System.out.print("Mesa: ");
+
+            for (int i = 0; i < FichasEnMesa.size(); i++) {
+                Ficha f = FichasEnMesa.get(i);
+                System.out.print(f.toString() + " ");
+            }
+            System.out.println();
         }
     }
 
