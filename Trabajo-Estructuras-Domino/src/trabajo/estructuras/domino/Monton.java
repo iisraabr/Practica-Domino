@@ -1,13 +1,13 @@
 package trabajo.estructuras.domino;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.Random;
 
 public class Monton implements MontonITF {
 
     private ArrayList<Ficha> fichas;
     int numFichas = 28;
+
     public Monton() {
         this.fichas = new ArrayList<>();
 
@@ -30,11 +30,16 @@ public class Monton implements MontonITF {
 
     @Override
     public Ficha extraerFicha() {
-        if (!estaVacio()) {
-            return fichas.remove(fichas.size() - 1);
+        if (estaVacio()) {
+            System.out.println("El monton esta vacio.");
+            return null;
         }
-        return null;
+        Random generador = new Random();
+        int rnd = generador.nextInt(fichas.size());
+
+        Ficha fichaExtraida = fichas.remove(rnd);
+
+        return fichaExtraida;
     }
-    
-    
+
 }
