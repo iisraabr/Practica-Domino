@@ -13,6 +13,30 @@ public class Jugador implements JugadorITF {
     }
 
     @Override
+    public String getNombre() {
+        return nombre;
+    }
+
+    @Override
+    public int buscarFicha(int l1, int l2) {
+        for (int i = 0; i < mano.size(); i++) {
+            Ficha f = mano.get(i);
+            if ((f.getLado1() == l1 && f.getLado2() == l2)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    @Override
+    public Ficha verFicha(int posicion) {
+        if (posicion >= 0 && posicion < mano.size()) {
+            return mano.get(posicion);
+        }
+        return null;
+    }
+
+    @Override
     public void robarFicha(Monton monton) {
         if (!monton.estaVacio()) {
             Ficha f = monton.extraerFicha();
@@ -23,21 +47,23 @@ public class Jugador implements JugadorITF {
     @Override
     public void mostrarMano() {
         System.out.println("Fichas " + nombre + ":");
-
+        // Imprime las fichas (cada una ocupa 10 caracteres con el espacio extra)
         for (int i = 0; i < mano.size(); i++) {
             System.out.print(mano.get(i).toString() + " ");
         }
         System.out.println();
-        System.out.println("Numero de ficha:");
+        
+        System.out.println("Indices:");
+        // Imprime los números centrados debajo del "|" de cada ficha [ 0 | 0 ]
         for (int i = 0; i < mano.size(); i++) {
-            System.out.print("  " + i + "   ");
+            // 4 espacios + el número + 5 espacios = 10 caracteres de ancho
+            System.out.print("    " + i + "     "); 
         }
         System.out.println();
     }
 
     @Override
     public Ficha elegirFicha(int posicion) {
-
         if (posicion >= 0 && posicion < mano.size()) {
             return mano.remove(posicion);
         }
@@ -56,5 +82,10 @@ public class Jugador implements JugadorITF {
             total += mano.get(i).getsuma();
         }
         return total;
+    }
+
+    @Override
+    public String toString() {
+        return this.nombre;
     }
 }
