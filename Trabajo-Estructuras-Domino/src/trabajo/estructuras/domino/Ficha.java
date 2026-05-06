@@ -1,7 +1,7 @@
 package trabajo.estructuras.domino;
 
 public class Ficha {
-    //patata asada
+    
     int lado1;
     int lado2;
 
