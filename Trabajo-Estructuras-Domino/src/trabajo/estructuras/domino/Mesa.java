@@ -3,13 +3,14 @@ package trabajo.estructuras.domino;
 import java.util.LinkedList;
 
 public class Mesa implements MesaITF {
-
+//Usar linkedlist para que mesa actue como bicola
     private LinkedList<Ficha> FichasEnMesa;
 
     public Mesa() {
         this.FichasEnMesa = new LinkedList<>();
     }
 
+    //helpers simples
     @Override
     public boolean estaVacia() {
         return FichasEnMesa.isEmpty();
@@ -43,6 +44,7 @@ public class Mesa implements MesaITF {
         return FichasEnMesa.getLast().getLado2();
     }
 
+    //se usará en el TAD Partida
     @Override
     public void mostrarMesa() {
         if (this.estaVacia()) {
