@@ -56,12 +56,12 @@ public class Partida implements PartidaITF {
             System.out.println("Fichas en el monton: " + monton.fichasRestantes());
             actual.mostrarMano();
 
-            // Mensaje de turno corregido
+            // Mensaje de turno corregido (antes daba el numero de fichas)
             System.out.println("\nTurno de: " + actual.getNombre());
             System.out.println("Fichas en mano: " + actual.numFichas());
             System.out.print("Elige numero de FICHA (o 'R' para ROBAR, 'P' para PASAR): ");
             String opcion = teclado.next().toUpperCase();
-
+//ignorar lo de convert to switch
             if (opcion.equals("R")) {
                 actual.robarFicha(monton);
             } else if (opcion.equals("P")) {
@@ -104,6 +104,7 @@ public class Partida implements PartidaITF {
         }
 
         System.out.print("¿Colocar al INICIO (I) o al FINAL (F)?: ");
+        //pueden poner la letra en minusculas
         String lado = teclado.next().toUpperCase();
         
         if (lado.equals("I")) {
