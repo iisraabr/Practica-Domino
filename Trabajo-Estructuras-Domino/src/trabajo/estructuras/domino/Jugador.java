@@ -3,7 +3,7 @@ package trabajo.estructuras.domino;
 import java.util.ArrayList;
 
 public class Jugador implements JugadorITF {
-
+//revisar si se pueden poner como final
     private ArrayList<Ficha> mano;
     private String nombre;
 
@@ -27,7 +27,7 @@ public class Jugador implements JugadorITF {
         }
         return -1;
     }
-
+//no borra la ficha solo la muestra
     @Override
     public Ficha verFicha(int posicion) {
         if (posicion >= 0 && posicion < mano.size()) {
@@ -35,7 +35,7 @@ public class Jugador implements JugadorITF {
         }
         return null;
     }
-
+//usamos metodo de Monton
     @Override
     public void robarFicha(Monton monton) {
         if (!monton.estaVacio()) {
@@ -43,7 +43,7 @@ public class Jugador implements JugadorITF {
             mano.add(f);
         }
     }
-
+//asegurarse de que indices coinciden con fichas
     @Override
     public void mostrarMano() {
         System.out.println("Fichas " + nombre + ":");
