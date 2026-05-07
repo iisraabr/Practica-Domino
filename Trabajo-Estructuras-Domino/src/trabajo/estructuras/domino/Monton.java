@@ -5,9 +5,10 @@ import java.util.Random;
 
 public class Monton implements MontonITF {
 
+    //al final no usamos MAXFICHAS porque usamos (size)
     private ArrayList<Ficha> fichas;
-    int numFichas = 28;
 
+    //Constructor
     public Monton() {
         this.fichas = new ArrayList<>();
 
@@ -17,7 +18,7 @@ public class Monton implements MontonITF {
             }
         }
     }
-
+//Helpers simples
     @Override
     public boolean estaVacio() {
         return fichas.isEmpty();
@@ -34,6 +35,7 @@ public class Monton implements MontonITF {
             System.out.println("El monton esta vacio.");
             return null;
         }
+        //randomizar extracción de ficha para evitar mezclarlas
         Random generador = new Random();
         int rnd = generador.nextInt(fichas.size());
 
