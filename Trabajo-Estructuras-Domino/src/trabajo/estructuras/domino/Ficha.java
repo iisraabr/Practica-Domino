@@ -9,7 +9,7 @@ public class Ficha {
         this.lado1 = lado1;
         this.lado2 = lado2;
     }
-
+//Getters y setters
     public int getLado1() {
         return lado1;
     }
@@ -25,13 +25,13 @@ public class Ficha {
     public void setLado2(int lado2) {
         this.lado2 = lado2;
     }
-
+//Se usa mas tarde para cuadrar fichas en mesa
     public void girar() {
         int aux = lado1;
         lado1 = lado2;
         lado2 = aux;
     }
-
+//Puntos final partida
     public int getsuma() {
         return lado1 + lado2;
     }
